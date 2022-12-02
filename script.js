@@ -35,10 +35,8 @@ if (SUPPORTS_MEDIA_DEVICES) {
           capabilities.fillLightMode.length != 0 &&
           capabilities.fillLightMode != 'none'
         );
-
-        log("torch supported");
-
         if (torchSupported) {
+          log("torch supported");
           let torch = false;
           btn.addEventListener('click', function (e) {
             try {
