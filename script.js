@@ -1,7 +1,7 @@
 //have a console on mobile
 const consoleOutput = document.getElementById("console");
 const log = function (msg) {
-  consoleOutput.innerText = `${consoleOutput.innerText}\n${msg}`;
+  consoleOutput.textContent = `${consoleOutput.textContent}\n${msg}`;
   console.log(msg);
 }
 
