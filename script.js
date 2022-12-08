@@ -15,12 +15,14 @@ if (SUPPORTS_MEDIA_DEVICES) {
     const cameras = devices.filter((device) => device.kind === 'videoinput');
 
     if (cameras.length === 0) {
-      log('No camera found on this device.');
+      throw 'No camera found on this device.';
     }
+    const camera = cameras[cameras.length - 1];
     // Create stream and get video track
     navigator.mediaDevices.getUserMedia({
       video: {
-        facingMode: 'environment',
+        deviceId: camera.deviceId,
+        facingMode: ['user', 'environment'],
       }
     }).then(stream => {
       const track = stream.getVideoTracks()[0];
@@ -29,7 +31,6 @@ if (SUPPORTS_MEDIA_DEVICES) {
           torch: true
         }]
       });
-      return;
       //Create image capture object and get camera capabilities
       const imageCapture = new ImageCapture(track)
       imageCapture.getPhotoCapabilities().then(capabilities => {
