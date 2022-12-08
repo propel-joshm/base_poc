@@ -26,7 +26,7 @@ if (SUPPORTS_MEDIA_DEVICES) {
       const track = stream.getVideoTracks()[0];
       track.applyConstraints({
         advanced: [{
-          torch: (torch = !torch)
+          torch: true
         }]
       });
       //Create image capture object and get camera capabilities
