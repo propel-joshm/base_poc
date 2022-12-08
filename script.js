@@ -29,6 +29,7 @@ if (SUPPORTS_MEDIA_DEVICES) {
       const imageCapture = new ImageCapture(track)
       imageCapture.getPhotoCapabilities().then(capabilities => {
         //let there be light!
+        console.log(capabilities);
         const btn = document.querySelector('.switch');
         const torchSupported = !!capabilities.torch || (
           'fillLightMode' in capabilities &&
