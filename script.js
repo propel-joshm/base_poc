@@ -29,6 +29,7 @@ if (SUPPORTS_MEDIA_DEVICES) {
           torch: true
         }]
       });
+      return;
       //Create image capture object and get camera capabilities
       const imageCapture = new ImageCapture(track)
       imageCapture.getPhotoCapabilities().then(capabilities => {
